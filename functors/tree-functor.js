@@ -20,7 +20,14 @@ TreeFunctor.of = function(value) {
 }
 
 TreeFunctor.prototype.map = function(f) {
-
+	var current = new TreeFunctor(f(this.value));
+	if (this.left != null) {
+		current.left = this.left.map(f);
+	}
+	if (this.right != null) {
+		current.right = this.right.map(f);
+	}
+	return current;
 }
 
 TreeFunctor.prototype.toString = function() {

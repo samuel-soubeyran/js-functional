@@ -18,6 +18,11 @@ If there is no value, return an empty MaybeFunctor
 */
 MaybeFunctor.prototype.map = function(f) {
 	// TODO
+	if (this.isEmpty()) {
+		return new MaybeFunctor(null);
+	} else {
+		return new MaybeFunctor(f(this.__value));
+	}
 }
 
 

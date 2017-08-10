@@ -1,5 +1,5 @@
 var ArrayFunctor = function(value) {
-	this.__value = value;
+	this.__value = value; 
 }
 
 // For example ArrayFunctor.of(1,2,3,4)
@@ -13,7 +13,11 @@ return a new array functor where each element
 is the result of applying f on the element of the current array functor.
 */
 ArrayFunctor.prototype.map = function(f) {
-	// TODO
+	var arr = [];
+	for (var i in this.__value) {
+		arr[i] = f(this.__value[i]);
+	}
+	return new ArrayFunctor(arr);
 }
 
 module.exports = ArrayFunctor;
