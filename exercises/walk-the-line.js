@@ -12,6 +12,7 @@ var Pole = function(leftBirds, rightBirds) {
 }
 
 //Return a new Pole with the new leftBirds = old leftBirds + birds
+// Int, Polr -> Pole => Int -> Pole -> Pole
 Pole.landLeft = R.curry(function(birds, pole) {
 });
 
@@ -22,13 +23,13 @@ Pole.landRight = R.curry(function(birds, pole) {
 
 //Return a new MaybeMonad(Pole) with the new leftBirds = old leftBirds + birds if abs(leftBird - rightBird) < 3
 // else return a MaybeMonad.of(null)
-Pole.prototype.maybeLandLeft = R.curry(function(birds, pole) {
+Pole.maybeLandLeft = R.curry(function(birds, pole) {
 
 });
 
 //Return a new MaybeMonad(Pole) with the new rightBirds = old rightBirds + birds if abs(leftBird - rightBird) < 3
 // else return a MaybeMonad.of(null)
-Pole.prototype.maybeLandRight = R.curry(function(birds, pole) {
+Pole.maybeLandRight = R.curry(function(birds, pole) {
   
 });
 
