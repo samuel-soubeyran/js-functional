@@ -22,7 +22,7 @@ describe("Pole", function() {
 
   it("should allow birds to land left", function() {
     var pole = new Pole(0,0);
-    var maybePole = new Pole.maybeLandLeft(2, pole);
+    var maybePole = Pole.maybeLandLeft(2, pole);
     expect(maybePole.isEmpty()).to.be.false;
     expect(maybePole.__value.leftBirds).to.equal(2);
   });
@@ -30,7 +30,7 @@ describe("Pole", function() {
 
   it("should allow birds to land right", function() {
     var pole = new Pole(0,0);
-    var maybePole = new Pole.maybeLandRight(3, pole);
+    var maybePole = Pole.maybeLandRight(3, pole);
     expect(maybePole.isEmpty()).to.be.false;
     expect(maybePole.__value.rightBirds).to.equal(3);
   });
@@ -38,7 +38,7 @@ describe("Pole", function() {
 
   it("should allow birds to land right and left", function() {
     var pole = new Pole(0,0);
-    var maybePole = new Pole.maybeLandRight(3, pole).bind(Pole.maybeLandLeft(2));
+    var maybePole = Pole.maybeLandRight(3, pole).bind(Pole.maybeLandLeft(2));
     expect(maybePole.isEmpty()).to.be.false;
     expect(maybePole.__value.rightBirds).to.equal(3);
     expect(maybePole.__value.leftBirds).to.equal(2);
@@ -47,7 +47,7 @@ describe("Pole", function() {
 
   it("shouldnt allow birds to reach a point when the walker falls", function() {
     var pole = new Pole(0,0);
-    var maybePole = new Pole.maybeLandRight(3, pole).bind(Pole.maybeLandLeft(2)).bind(Pole.maybeLandRight(7));
+    var maybePole = Pole.maybeLandRight(3, pole).bind(Pole.maybeLandLeft(2)).bind(Pole.maybeLandRight(7));
     expect(maybePole.isEmpty()).to.be.true;
   });
 
